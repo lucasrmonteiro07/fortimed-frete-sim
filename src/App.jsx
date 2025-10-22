@@ -374,15 +374,11 @@ function App() {
             </div>
             <div className="breakdown-item">
               <span>GRIS ({resultado.grisPercentual}% sobre NF):</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                <span style={{ fontSize: '0.85em', color: '#666' }}>
-                  R$ {resultado.grisCalculado} calculado
-                </span>
-                <strong>R$ {resultado.gris}</strong>
-                <span style={{ fontSize: '0.85em', color: '#666' }}>
-                  mínimo R$ {resultado.grisMinimo}
-                </span>
-              </div>
+              <strong>R$ {resultado.gris}</strong>
+            </div>
+            <div style={{ fontSize: '0.80em', color: '#999', marginLeft: '0', paddingLeft: '0', marginTop: '-8px', marginBottom: '15px' }}>
+              <div>R$ {resultado.grisCalculado} calculado</div>
+              <div>mínimo R$ {resultado.grisMinimo}</div>
             </div>
             <div className="breakdown-item total">
               <span>Total do Frete:</span>
