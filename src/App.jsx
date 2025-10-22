@@ -185,6 +185,7 @@ function App() {
   const [estado, setEstado] = useState('São Paulo')
   const [zona, setZona] = useState('SP1')
   const [cidade, setCidade] = useState('')
+  const [zonaOrigem, setZonaOrigem] = useState('SP1')
   const [peso, setPeso] = useState('')
   const [valorNota, setValorNota] = useState('')
   const [resultado, setResultado] = useState(null)
@@ -271,24 +272,37 @@ function App() {
     const pedagio = Math.ceil(pesoNum / 100) * (isSP ? PEDAGIO_SP : PEDAGIO_OUTROS)
 
     // 4. GRIS - % sobre valor da NF com mínimo
-    const grisPercentual = isSP ? GRIS_SP_PERCENTUAL : GRIS_OUTROS_PERCENTUAL
-    const grisMinimo = isSP ? GRIS_SP_MINIMO : GRIS_OUTROS_MINIMO
+    // REGRA: Se origem OU destino for SP = 0,20% (min R$ 6,18)
+    //        Se ambos forem não-SP = 0,15% (min R$ 3,31)
+    const isOrigemSP = zonaOrigem.startsWith('SP')
+    const isDestinoSP = zona.startsWith('SP')
+    const temSP = isOrigemSP || isDestinoSP
+    
+    const grisPercentual = temSP ? GRIS_SP_PERCENTUAL : GRIS_OUTROS_PERCENTUAL
+    const grisMinimo = temSP ? GRIS_SP_MINIMO : GRIS_OUTROS_MINIMO
     const gris = valorNotaNum > 0 
       ? Math.max(valorNotaNum * grisPercentual, grisMinimo)
       : grisMinimo
 
     // 5. Frete total
     const freteTotal = freteBase + pedagio + gris
+    
+    // Determinar percentual GRIS para exibição
+    const percentualGrisExibicao = temSP ? '0,20' : '0,15'
 
     setResultado({
       transportadora: transportadoras.find(t => t.id === parseInt(transportadora))?.nome,
+      zona: zona,
+      regiao_origem: regiaoInfo[zonaOrigem].nome,
       regiao: regiaoInfo[zona].nome,
       cidades: regiaoInfo[zona].cidades,
+      zonaOrigem: zonaOrigem,
       peso: pesoNum,
       valorNota: valorNotaNum,
       freteBase: freteBase.toFixed(2),
       pedagio: pedagio.toFixed(2),
       gris: gris.toFixed(2),
+      grisPercentual: percentualGrisExibicao,
       freteTotal: freteTotal.toFixed(2)
     })
   }
@@ -301,6 +315,8 @@ function App() {
       </div>
       
       <div className="form-container">
+        <h3 style={{ marginTop: 0, color: '#0e4370', marginBottom: '20px' }}>📍 ORIGEM</h3>
+        
         <div className="form-group">
           <label htmlFor="transportadora">Transportadora:</label>
           <select 
@@ -313,6 +329,23 @@ function App() {
             ))}
           </select>
         </div>
+
+        <div className="form-group">
+          <label htmlFor="zonaOrigem">Zona/Região de Origem:</label>
+          <select 
+            id="zonaOrigem"
+            value={zonaOrigem} 
+            onChange={(e) => setZonaOrigem(e.target.value)}
+          >
+            {Object.entries(regiaoInfo).map(([z, info]) => (
+              <option key={z} value={z}>
+                {z} - {info.nome}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <h3 style={{ marginTop: 30, color: '#0e4370', marginBottom: '20px' }}>🎯 DESTINO</h3>
 
         <div className="form-group">
           <label htmlFor="estado">Estado:</label>
@@ -390,8 +423,9 @@ function App() {
           <h2>📊 Resultado da Simulação</h2>
           <div className="info-box">
             <p><strong>Transportadora:</strong> <span>{resultado.transportadora}</span></p>
-            <p><strong>Região:</strong> <span>{resultado.regiao}</span></p>
-            <p><strong>Cidades Atendidas:</strong> <span>{resultado.cidades}</span></p>
+            <p><strong>Origem:</strong> <span>{resultado.zonaOrigem} - {resultado.regiao_origem}</span></p>
+            <p><strong>Destino:</strong> <span>{resultado.zona} - {resultado.regiao}</span></p>
+            <p><strong>Cidades (Destino):</strong> <span>{resultado.cidades}</span></p>
             <p><strong>Peso:</strong> <span>{resultado.peso} kg</span></p>
             {resultado.valorNota > 0 && (
               <p><strong>Valor da Nota:</strong> <span>R$ {resultado.valorNota.toFixed(2)}</span></p>
@@ -409,7 +443,7 @@ function App() {
               <strong>R$ {resultado.pedagio}</strong>
             </div>
             <div className="breakdown-item">
-              <span>GRIS (0,50% NF):</span>
+              <span>GRIS ({resultado.grisPercentual}% NF):</span>
               <strong>R$ {resultado.gris}</strong>
             </div>
             <div className="breakdown-item total">
