@@ -137,29 +137,29 @@ const regiaoInfo = {
 
 // Tabela de preços por zona - baseada na tabela oficial
 const precos = {
-  'SP1': { taxa: 70.82, freteQuilo: 1.152, percentualNF: 0.50 },
-  'SP2': { taxa: 69.92, freteQuilo: 1.139, percentualNF: 0.50 },
-  'SP3': { taxa: 74.26, freteQuilo: 1.204, percentualNF: 0.50 },
-  'PR1': { taxa: 43.99, freteQuilo: 0.746, percentualNF: 0.50 },
-  'PR2': { taxa: 52.91, freteQuilo: 0.881, percentualNF: 0.50 },
-  'PR3': { taxa: 59.78, freteQuilo: 0.985, percentualNF: 0.50 },
-  'PR4': { taxa: 45.85, freteQuilo: 0.774, percentualNF: 0.50 },
-  'PR5': { taxa: 58.53, freteQuilo: 0.965, percentualNF: 0.50 },
-  'PR6': { taxa: 51.88, freteQuilo: 0.866, percentualNF: 0.50 },
-  'SC1': { taxa: 39.07, freteQuilo: 0.671, percentualNF: 0.50 },
-  'SC2': { taxa: 37.26, freteQuilo: 0.643, percentualNF: 0.50 },
-  'SC3': { taxa: 42.75, freteQuilo: 0.727, percentualNF: 0.50 },
-  'SC4': { taxa: 42.04, freteQuilo: 0.717, percentualNF: 0.50 },
-  'SC5': { taxa: 48.38, freteQuilo: 0.812, percentualNF: 0.50 },
-  'SC6': { taxa: 34.87, freteQuilo: 0.608, percentualNF: 0.50 },
-  'RS1': { taxa: 26.44, freteQuilo: 0.481, percentualNF: 0.50 },
-  'RS2': { taxa: 25.22, freteQuilo: 0.463, percentualNF: 0.50 },
-  'RS3': { taxa: 30.25, freteQuilo: 0.538, percentualNF: 0.50 },
-  'RS4': { taxa: 35.80, freteQuilo: 0.621, percentualNF: 0.50 },
-  'RS5': { taxa: 29.64, freteQuilo: 0.529, percentualNF: 0.50 },
-  'RS6': { taxa: 41.84, freteQuilo: 0.712, percentualNF: 0.50 },
-  'RS7': { taxa: 34.13, freteQuilo: 0.598, percentualNF: 0.50 },
-  'RS8': { taxa: 30.82, freteQuilo: 0.546, percentualNF: 0.50 }
+  'SP1': { taxa: 70.82, freteQuilo: 1.152, grisPercentual: 0.20 },
+  'SP2': { taxa: 69.92, freteQuilo: 1.139, grisPercentual: 0.20 },
+  'SP3': { taxa: 74.26, freteQuilo: 1.204, grisPercentual: 0.20 },
+  'PR1': { taxa: 43.99, freteQuilo: 0.746, grisPercentual: 0.15 },
+  'PR2': { taxa: 52.91, freteQuilo: 0.881, grisPercentual: 0.15 },
+  'PR3': { taxa: 59.78, freteQuilo: 0.985, grisPercentual: 0.15 },
+  'PR4': { taxa: 45.85, freteQuilo: 0.774, grisPercentual: 0.15 },
+  'PR5': { taxa: 58.53, freteQuilo: 0.965, grisPercentual: 0.15 },
+  'PR6': { taxa: 51.88, freteQuilo: 0.866, grisPercentual: 0.15 },
+  'SC1': { taxa: 39.07, freteQuilo: 0.671, grisPercentual: 0.15 },
+  'SC2': { taxa: 37.26, freteQuilo: 0.643, grisPercentual: 0.15 },
+  'SC3': { taxa: 42.75, freteQuilo: 0.727, grisPercentual: 0.15 },
+  'SC4': { taxa: 42.04, freteQuilo: 0.717, grisPercentual: 0.15 },
+  'SC5': { taxa: 48.38, freteQuilo: 0.812, grisPercentual: 0.15 },
+  'SC6': { taxa: 34.87, freteQuilo: 0.608, grisPercentual: 0.15 },
+  'RS1': { taxa: 26.44, freteQuilo: 0.481, grisPercentual: 0.15 },
+  'RS2': { taxa: 25.22, freteQuilo: 0.463, grisPercentual: 0.15 },
+  'RS3': { taxa: 30.25, freteQuilo: 0.538, grisPercentual: 0.15 },
+  'RS4': { taxa: 35.80, freteQuilo: 0.621, grisPercentual: 0.15 },
+  'RS5': { taxa: 29.64, freteQuilo: 0.529, grisPercentual: 0.15 },
+  'RS6': { taxa: 41.84, freteQuilo: 0.712, grisPercentual: 0.15 },
+  'RS7': { taxa: 34.13, freteQuilo: 0.598, grisPercentual: 0.15 },
+  'RS8': { taxa: 30.82, freteQuilo: 0.546, grisPercentual: 0.15 }
 }
 
 // Constantes para taxas e adicionais
@@ -381,7 +381,7 @@ function App() {
                 <th>Região</th>
                 <th>Taxa (R$)</th>
                 <th>Frete/kg (R$)</th>
-                <th>% NF</th>
+                <th>GRIS (%)</th>
               </tr>
             </thead>
             <tbody>
@@ -391,7 +391,7 @@ function App() {
                   <td>{info.nome.split(' - ')[1]}</td>
                   <td>R$ {precos[zona].taxa.toFixed(2)}</td>
                   <td>R$ {precos[zona].freteQuilo.toFixed(3)}</td>
-                  <td>{precos[zona].percentualNF.toFixed(2)}%</td>
+                  <td>{precos[zona].grisPercentual.toFixed(2)}%</td>
                 </tr>
               ))}
             </tbody>
