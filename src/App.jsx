@@ -137,37 +137,37 @@ const regiaoInfo = {
 
 // Tabela de preços por zona - baseada na tabela oficial
 const precos = {
-  'SP1': { taxa: 70.82, freteQuilo: 1.152, grisPercentual: 0.20 },
-  'SP2': { taxa: 69.92, freteQuilo: 1.139, grisPercentual: 0.20 },
-  'SP3': { taxa: 74.26, freteQuilo: 1.204, grisPercentual: 0.20 },
-  'PR1': { taxa: 43.99, freteQuilo: 0.746, grisPercentual: 0.15 },
-  'PR2': { taxa: 52.91, freteQuilo: 0.881, grisPercentual: 0.15 },
-  'PR3': { taxa: 59.78, freteQuilo: 0.985, grisPercentual: 0.15 },
-  'PR4': { taxa: 45.85, freteQuilo: 0.774, grisPercentual: 0.15 },
-  'PR5': { taxa: 58.53, freteQuilo: 0.965, grisPercentual: 0.15 },
-  'PR6': { taxa: 51.88, freteQuilo: 0.866, grisPercentual: 0.15 },
-  'SC1': { taxa: 39.07, freteQuilo: 0.671, grisPercentual: 0.15 },
-  'SC2': { taxa: 37.26, freteQuilo: 0.643, grisPercentual: 0.15 },
-  'SC3': { taxa: 42.75, freteQuilo: 0.727, grisPercentual: 0.15 },
-  'SC4': { taxa: 42.04, freteQuilo: 0.717, grisPercentual: 0.15 },
-  'SC5': { taxa: 48.38, freteQuilo: 0.812, grisPercentual: 0.15 },
-  'SC6': { taxa: 34.87, freteQuilo: 0.608, grisPercentual: 0.15 },
-  'RS1': { taxa: 26.44, freteQuilo: 0.481, grisPercentual: 0.15 },
-  'RS2': { taxa: 25.22, freteQuilo: 0.463, grisPercentual: 0.15 },
-  'RS3': { taxa: 30.25, freteQuilo: 0.538, grisPercentual: 0.15 },
-  'RS4': { taxa: 35.80, freteQuilo: 0.621, grisPercentual: 0.15 },
-  'RS5': { taxa: 29.64, freteQuilo: 0.529, grisPercentual: 0.15 },
-  'RS6': { taxa: 41.84, freteQuilo: 0.712, grisPercentual: 0.15 },
-  'RS7': { taxa: 34.13, freteQuilo: 0.598, grisPercentual: 0.15 },
-  'RS8': { taxa: 30.82, freteQuilo: 0.546, grisPercentual: 0.15 }
+  'SP1': { taxa: 70.82, freteQuilo: 1.152, grisPercentual: 0.50 },
+  'SP2': { taxa: 69.92, freteQuilo: 1.139, grisPercentual: 0.50 },
+  'SP3': { taxa: 74.26, freteQuilo: 1.204, grisPercentual: 0.50 },
+  'PR1': { taxa: 43.99, freteQuilo: 0.746, grisPercentual: 0.50 },
+  'PR2': { taxa: 52.91, freteQuilo: 0.881, grisPercentual: 0.50 },
+  'PR3': { taxa: 59.78, freteQuilo: 0.985, grisPercentual: 0.50 },
+  'PR4': { taxa: 45.85, freteQuilo: 0.774, grisPercentual: 0.50 },
+  'PR5': { taxa: 58.53, freteQuilo: 0.965, grisPercentual: 0.50 },
+  'PR6': { taxa: 51.88, freteQuilo: 0.866, grisPercentual: 0.50 },
+  'SC1': { taxa: 39.07, freteQuilo: 0.671, grisPercentual: 0.50 },
+  'SC2': { taxa: 37.26, freteQuilo: 0.643, grisPercentual: 0.50 },
+  'SC3': { taxa: 42.75, freteQuilo: 0.727, grisPercentual: 0.50 },
+  'SC4': { taxa: 42.04, freteQuilo: 0.717, grisPercentual: 0.50 },
+  'SC5': { taxa: 48.38, freteQuilo: 0.812, grisPercentual: 0.50 },
+  'SC6': { taxa: 34.87, freteQuilo: 0.608, grisPercentual: 0.50 },
+  'RS1': { taxa: 26.44, freteQuilo: 0.481, grisPercentual: 0.50 },
+  'RS2': { taxa: 25.22, freteQuilo: 0.463, grisPercentual: 0.50 },
+  'RS3': { taxa: 30.25, freteQuilo: 0.538, grisPercentual: 0.50 },
+  'RS4': { taxa: 35.80, freteQuilo: 0.621, grisPercentual: 0.50 },
+  'RS5': { taxa: 29.64, freteQuilo: 0.529, grisPercentual: 0.50 },
+  'RS6': { taxa: 41.84, freteQuilo: 0.712, grisPercentual: 0.50 },
+  'RS7': { taxa: 34.13, freteQuilo: 0.598, grisPercentual: 0.50 },
+  'RS8': { taxa: 30.82, freteQuilo: 0.546, grisPercentual: 0.50 }
 }
 
 // Constantes para taxas e adicionais
 const PEDAGIO_SP = 6.18
 const PEDAGIO_OUTROS = 3.31
-const GRIS_SP_PERCENTUAL = 0.0020
+const GRIS_SP_PERCENTUAL = 0.0050
 const GRIS_SP_MINIMO = 6.18
-const GRIS_OUTROS_PERCENTUAL = 0.0015
+const GRIS_OUTROS_PERCENTUAL = 0.0050
 const GRIS_OUTROS_MINIMO = 3.31
 const AUMENTO_500A1000KG = 0.10
 const AUMENTO_ACIMA1000KG = 0.25
@@ -397,6 +397,41 @@ function App() {
             </tbody>
           </table>
         </div>
+      </div>
+
+      <div className="info-section" style={{ marginTop: '40px', padding: '20px', backgroundColor: '#f5f5f5', borderRadius: '8px' }}>
+        <h2>📋 Informações Gerais</h2>
+        
+        <h3>GENERALIDADES</h3>
+        <ul>
+          <li><strong>Tabela:</strong> Para frete Expedido Pago e Recebido À Pagar</li>
+          <li><strong>Pequenos Volumes S.V.D.:</strong> SP R$ 92,00 | PR R$ 76,00 | SC R$ 59,50 | RS R$ 43,50</li>
+          <li><strong>Pedágio:</strong> Por Fração de 100Kg. Destino/Origem SP R$ 6,18 | Demais Origens/Destinos: R$ 3,31</li>
+          <li><strong>GRIS:</strong> 0,50% sobre valor da NF com mínimo por CTe (SP: R$ 6,18 | Demais: R$ 3,31)</li>
+          <li><strong>Acréscimo Peso:</strong> 500-1000kg: +10% no frete/kg | Acima de 1000kg: +25% no frete/kg</li>
+          <li><strong>Mercadorias Volumosas:</strong> 300Kg/m³</li>
+          <li><strong>Tributação:</strong> Conforme legislação vigente (ICMS, ISS, PIS, COFINS)</li>
+        </ul>
+
+        <h3>TAXAS</h3>
+        <ul>
+          <li><strong>TDE (Difícil Entrega):</strong> 20% sobre frete com mínimo de R$ 207,50</li>
+          <li><strong>TDA (Difícil Acesso):</strong> R$ 6,33/km (ida e volta)</li>
+          <li><strong>T-CPF (Entrega para CPF):</strong> R$ 48,60 por CTe (isento na retirada)</li>
+          <li><strong>TVD (Veículo Dedicado):</strong> 20% sobre frete com mínimo de R$ 576,00</li>
+          <li><strong>TPC (Permanência Carga):</strong> R$ 0,160/kg/dia (mínimo R$ 207,50/dia, isento 5 primeiros dias)</li>
+          <li><strong>Reentrega:</strong> 50% sobre frete original com mínimo de R$ 38,10 por CTe</li>
+        </ul>
+
+        <h3>INFORMAÇÕES IMPORTANTES</h3>
+        <ul>
+          <li>Tabela com vigência de 12 meses, podendo ser reajustada conforme variações operacionais (índice NTC Logística)</li>
+          <li>Tabela automaticamente inativada sem aviso prévio se sem faturamento por 3 meses consecutivos</li>
+          <li>Localidades atendidas: <a href="https://www.expressosaomiguel.com.br" target="_blank" rel="noopener noreferrer">www.expressosaomiguel.com.br</a> ou APP "Expresso São Miguel - Cliente"</li>
+          <li>Envie XML da NFe para: <a href="mailto:xml@expressosaomiguel.com.br">xml@expressosaomiguel.com.br</a></li>
+          <li>Ao aceitar esta proposta, entra em vigência imediata para os CNPJ's indicados</li>
+          <li><strong>Limite embarques:</strong> 5.000kg ou 12m³ por dia (mesmo expedidor x recebedor)</li>
+        </ul>
       </div>
     </div>
   )
