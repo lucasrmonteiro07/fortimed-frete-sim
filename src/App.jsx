@@ -240,11 +240,11 @@ function App() {
       ? Math.max(grisCalculado, grisMinimo)
       : grisMinimo
 
-    // 4.5 Frete Valor - 0,50% sobre valor da NF (para referência)
+    // 4.5 Frete Valor - 0,50% sobre valor da NF
     const freteValorCalculado = valorNotaNum * 0.005
 
-    // 5. Frete total
-    const freteTotal = freteBase + pedagio + gris
+    // 5. Frete total (inclui Frete Valor + GRIS)
+    const freteTotal = freteBase + pedagio + freteValorCalculado + gris
     
     // Determinar percentual GRIS para exibição
     const percentualGrisExibicao = isSP ? '0,20' : '0,15'
