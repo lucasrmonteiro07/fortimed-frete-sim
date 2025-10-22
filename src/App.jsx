@@ -240,6 +240,9 @@ function App() {
       ? Math.max(grisCalculado, grisMinimo)
       : grisMinimo
 
+    // 4.5 Frete Valor - 0,50% sobre valor da NF (para referência)
+    const freteValorCalculado = valorNotaNum * 0.005
+
     // 5. Frete total
     const freteTotal = freteBase + pedagio + gris
     
@@ -255,6 +258,7 @@ function App() {
       valorNota: valorNotaNum,
       freteBase: freteBase.toFixed(2),
       pedagio: pedagio.toFixed(2),
+      freteValor: freteValorCalculado.toFixed(2),
       gris: gris.toFixed(2),
       grisCalculado: grisCalculado.toFixed(2),
       grisMinimo: grisMinimo.toFixed(2),
@@ -363,6 +367,10 @@ function App() {
             <div className="breakdown-item">
               <span>Pedágio:</span>
               <strong>R$ {resultado.pedagio}</strong>
+            </div>
+            <div className="breakdown-item">
+              <span>Frete Valor (0,50% NF):</span>
+              <strong>R$ {resultado.freteValor}</strong>
             </div>
             <div className="breakdown-item">
               <span>GRIS ({resultado.grisPercentual}% sobre NF):</span>
