@@ -184,7 +184,6 @@ function App() {
   const [transportadora, setTransportadora] = useState('1')
   const [estado, setEstado] = useState('São Paulo')
   const [zona, setZona] = useState('SP1')
-  const [cidade, setCidade] = useState('')
   const [peso, setPeso] = useState('')
   const [valorNota, setValorNota] = useState('')
   const [resultado, setResultado] = useState(null)
@@ -192,50 +191,11 @@ function App() {
   const estados = ['São Paulo', 'Paraná', 'Santa Catarina', 'Rio Grande do Sul']
   const zonasDisponiveis = regioes[transportadora]?.[estado] || []
 
-  // Função para obter todas as cidades por estado
-  const getCidadesPorEstado = (est) => {
-    const cidadesSet = new Set()
-    const zonasPorEstado = regioes[transportadora]?.[est] || []
-    
-    zonasPorEstado.forEach(z => {
-      const cidades = regiaoInfo[z].cidades.split(', ')
-      cidades.forEach(c => cidadesSet.add(c.trim()))
-    })
-    
-    return Array.from(cidadesSet).sort()
-  }
-
-  // Função para obter zona a partir de uma cidade
-  const getZonaPorCidade = (cidadeNome, est) => {
-    const zonasPorEstado = regioes[transportadora]?.[est] || []
-    
-    for (const z of zonasPorEstado) {
-      const cidades = regiaoInfo[z].cidades.split(', ').map(c => c.trim())
-      if (cidades.includes(cidadeNome)) {
-        return z
-      }
-    }
-    return null
-  }
-
-  const cidadesPorEstado = getCidadesPorEstado(estado)
-
   const handleEstadoChange = (novoEstado) => {
     setEstado(novoEstado)
-    setCidade('')
     const primeiraZona = regioes[transportadora]?.[novoEstado]?.[0]
     if (primeiraZona) {
       setZona(primeiraZona)
-    }
-  }
-
-  const handleCidadeChange = (nomeCidade) => {
-    setCidade(nomeCidade)
-    if (nomeCidade) {
-      const zonaEncontrada = getZonaPorCidade(nomeCidade, estado)
-      if (zonaEncontrada) {
-        setZona(zonaEncontrada)
-      }
     }
   }
 
@@ -333,20 +293,6 @@ function App() {
           >
             {estados.map(est => (
               <option key={est} value={est}>{est}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="cidade">Cidade:</label>
-          <select 
-            id="cidade"
-            value={cidade} 
-            onChange={(e) => handleCidadeChange(e.target.value)}
-          >
-            <option value="">-- Selecione uma cidade --</option>
-            {cidadesPorEstado.map(cid => (
-              <option key={cid} value={cid}>{cid}</option>
             ))}
           </select>
         </div>
