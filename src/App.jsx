@@ -96,42 +96,42 @@ const regiaoInfo = {
   'RS1': {
     estado: 'Rio Grande do Sul',
     nome: 'RS1 - Região Metropolitana de Porto Alegre e Vale dos Sinos',
-    cidades: 'Porto Alegre, Canoas, Gravataí, Cachoeirinha, Esteio, Sapucaia do Sul, São Leopoldo, Novo Hamburgo, Campo Bom, Estância Velha, Ivoti, Dois Irmãos'
+    cidades: 'Porto Alegre, Canoas, Gravataí, Cachoeirinha, Esteio, Sapucaia do Sul, São Leopoldo, Novo Hamburgo, Campo Bom, Estância Velha, Ivoti, Dois Irmãos, Feliz, Bom Princípio, Capela de Santana, São Sebastião do Caí, Brochier, Charqueadas, Eldorado do Sul, Arroio dos Ratos, Guaíba, Barra do Ribeiro, Butiá'
   },
   'RS2': {
     estado: 'Rio Grande do Sul',
     nome: 'RS2 - Serra Gaúcha e Hortênsias',
-    cidades: 'Caxias do Sul, Farroupilha, Bento Gonçalves, Garibaldi, Carlos Barbosa, Flores da Cunha, Nova Petrópolis, Gramado, Canela'
+    cidades: 'Caxias do Sul, Farroupilha, Bento Gonçalves, Garibaldi, Carlos Barbosa, Flores da Cunha, Nova Petrópolis, Gramado, Canela, Veranópolis, Vila Flores, Antônio Prado, Guaporé, Nova Prata, Cotiporã, Fagundes Varela, Monte Belo do Sul, Santa Tereza'
   },
   'RS3': {
     estado: 'Rio Grande do Sul',
     nome: 'RS3 - Região dos Vales (Taquari / Rio Pardo)',
-    cidades: 'Lajeado, Estrela, Teutônia, Encantado, Venâncio Aires, Santa Cruz do Sul, Vera Cruz'
+    cidades: 'Lajeado, Estrela, Teutônia, Encantado, Arroio do Meio, Venâncio Aires, Santa Cruz do Sul, Vera Cruz, Sobradinho, Passo do Sobrado, Cruzeiro do Sul, Paverama, Imigrante, Colinas, Poço das Antas'
   },
   'RS4': {
     estado: 'Rio Grande do Sul',
     nome: 'RS4 - Região Noroeste / Missões',
-    cidades: 'Santo Ângelo, Ijuí, Panambi, Cruz Alta, Santa Rosa, São Borja'
+    cidades: 'Santo Ângelo, Ijuí, Panambi, Cruz Alta, Três de Maio, Santa Rosa, Horizontina, Giruá, São Luiz Gonzaga, Cerro Largo, São Borja, Roque Gonzales, Caibaté, Guarani das Missões, Salvador das Missões'
   },
   'RS5': {
     estado: 'Rio Grande do Sul',
     nome: 'RS5 - Região Norte / Alto Uruguai',
-    cidades: 'Passo Fundo, Erechim, Getúlio Vargas, Sananduva, Lagoa Vermelha'
+    cidades: 'Passo Fundo, Erechim, Getúlio Vargas, Sananduva, Lagoa Vermelha, Tapejara, Marau, Casca, Ibiaçá, Cacique Doble, Machadinho, Maximiliano de Almeida, Viadutos, Gaurama, Aratiba'
   },
   'RS6': {
     estado: 'Rio Grande do Sul',
     nome: 'RS6 - Região Sul / Litoral',
-    cidades: 'Pelotas, Rio Grande, São Lourenço do Sul, Canguçu, Torres'
+    cidades: 'Pelotas, Rio Grande, São Lourenço do Sul, Canguçu, Arroio Grande, Jaguarão, Piratini, Turuçu, Santa Vitória do Palmar, Chuí, Mostardas, Palmares do Sul, Tramandaí, Osório, Capão da Canoa, Torres'
   },
   'RS7': {
     estado: 'Rio Grande do Sul',
     nome: 'RS7 - Região Centro / Fronteira Oeste',
-    cidades: 'Santa Maria, Cachoeira do Sul, Rosário do Sul, Alegrete, Uruguaiana'
+    cidades: 'Santa Maria, Cachoeira do Sul, São Gabriel, Rosário do Sul, Alegrete, Uruguaiana, Itaqui, São Vicente do Sul, Dom Pedrito, Bagé, Lavras do Sul, Santana do Livramento, Quaraí'
   },
   'RS8': {
     estado: 'Rio Grande do Sul',
     nome: 'RS8 - Região Planalto Médio / Campos de Cima da Serra',
-    cidades: 'Vacaria, Muitos Capões, Esmeralda, Bom Jesus, Cambará do Sul'
+    cidades: 'Vacaria, Lagoa Vermelha, Muitos Capões, Esmeralda, São José dos Ausentes, Bom Jesus, Cambará do Sul, Ipê, André da Rocha, Campestre da Serra'
   }
 }
 
